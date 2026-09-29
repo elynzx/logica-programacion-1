@@ -17,4 +17,15 @@ function pedirNumeros() {
   let listaNumeros = document.getElementById("lista-numeros");
   listaNumeros.textContent = `${num1}, ${num2}, ${num3}.`;
   listaNumeros.style.color = "white";
+
+  numeros.push(num1, num2, num3);
+  console.log(numeros);
+}
+
+function validarLista() {
+  if (numeros.length === 0) {
+    alert("Debe ingresar los numeros");
+    return false;
+  }
+  return true;
 }
