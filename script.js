@@ -1,4 +1,5 @@
 let numeros = [];
+let listaNumeros = document.getElementById("lista-numeros");
 
 function pedirNumeros() {
   let num1 = Number(prompt("Ingresar el primer numero:"));
@@ -14,9 +15,7 @@ function pedirNumeros() {
   console.log("num2:", num2);
   console.log("num3:", num3);
 
-  let listaNumeros = document.getElementById("lista-numeros");
   listaNumeros.textContent = `${num1}, ${num2}, ${num3}.`;
-  listaNumeros.style.color = "white";
 
   numeros.push(num1, num2, num3);
   console.log(numeros);
@@ -25,6 +24,13 @@ function pedirNumeros() {
 function validarLista() {
   if (numeros.length === 0) {
     alert("Debe ingresar los numeros");
+    return false;
+  }
+
+  if (numeros[0] === numeros[1] && numeros[1] === numeros[2]) {
+    listaNumeros.textContent = "Los numeros son iguales";
+    console.log(numeros, "Son numeros iguales");
+    numeros = [];
     return false;
   }
   return true;
